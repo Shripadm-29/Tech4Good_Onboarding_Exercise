@@ -44,6 +44,7 @@ export class LongTermGoalsComponent implements OnInit {
     });
   }
 
+
   // --------------- OTHER -------------------------------
 
   constructor(private snackBar: MatSnackBar) {}

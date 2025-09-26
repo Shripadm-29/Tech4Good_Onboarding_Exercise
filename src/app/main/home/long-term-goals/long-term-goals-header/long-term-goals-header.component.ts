@@ -5,6 +5,7 @@ import {
   output,
 } from '@angular/core';
 import { LongTermGoalsHeaderAnimations } from './long-term-goals-header.animations';
+import { endOfWeek, startOfWeek } from 'src/app/core/utils/time.utils';
 
 @Component({
   selector: 'app-long-term-goals-header',
@@ -23,9 +24,13 @@ export class LongTermGoalsHeaderComponent implements OnInit {
   // --------------- LOCAL UI STATE ----------------------
 
   // --------------- COMPUTED DATA -----------------------
+  endOfWeek = endOfWeek; // import from time.utils.ts
 
+  startOfWeek = startOfWeek; // import from time.utils.ts
   // --------------- EVENT HANDLING ----------------------
-
+  editGoals() {
+    this.editClicked.emit(true);
+  }
   // --------------- OTHER -------------------------------
 
   constructor() {}
