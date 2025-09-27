@@ -4,9 +4,12 @@ import {
   ChangeDetectionStrategy,
   input,
   Signal,
+  OutputEmitterRef,
+  output
 } from '@angular/core';
 import { LongTermGoalsItemAnimations } from './long-term-goals-item.animations';
 import { LongTermGoal } from 'src/app/core/store/long-term-goal/long-term-goal.model';
+import { MatCheckbox } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-long-term-goals-item',
@@ -15,19 +18,22 @@ import { LongTermGoal } from 'src/app/core/store/long-term-goal/long-term-goal.m
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: LongTermGoalsItemAnimations,
   standalone: true,
-  imports: [],
+  imports: [MatCheckbox],
 })
 export class LongTermGoalsItemComponent implements OnInit {
   // --------------- INPUTS AND OUTPUTS ------------------
 
-  goals: Signal<LongTermGoal> = input.required<LongTermGoal>();
+  goal: Signal<LongTermGoal> = input.required<LongTermGoal>();
+  checked: OutputEmitterRef<LongTermGoal> = output<LongTermGoal>();
 
   // --------------- LOCAL UI STATE ----------------------
 
   // --------------- COMPUTED DATA -----------------------
 
   // --------------- EVENT HANDLING ----------------------
-
+  checkGoal() {
+    this.checked.emit(this.goal());
+  }
   // --------------- OTHER -------------------------------
 
   constructor() {}

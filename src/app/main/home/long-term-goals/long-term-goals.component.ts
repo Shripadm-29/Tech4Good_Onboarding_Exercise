@@ -44,6 +44,18 @@ export class LongTermGoalsComponent implements OnInit {
     });
   }
 
+  checkGoal(goal: LongTermGoal) {
+    this.snackBar.open(
+      `Clicked on goal: ${goal}`,
+      '',
+      {
+        duration: 3000,
+        verticalPosition: 'bottom',
+        horizontalPosition: 'center',
+      },
+    );
+  }
+
 
   // --------------- OTHER -------------------------------
 

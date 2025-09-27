@@ -1,4 +1,4 @@
 <div class="long-term-goals-container">
   <app-long-term-goals-header (editClicked)="openModal($event)" />
-  <app-long-term-goals-item [goals]="exampleLongTermGoals"/>
+  <app-long-term-goals-item [goal]="exampleLongTermGoals" (checked)="checkGoal($event)" />
 </div>
